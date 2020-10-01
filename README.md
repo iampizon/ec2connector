@@ -27,7 +27,7 @@
  15|publish test             |i-111423a13ac71ab24  |t2.micro      |N/A             |ap-northeast-2a |mykey.pem
  16|test web                 |i-1115ea8b498071ef6  |t2.xlarge     |13.111.11.1     |ap-northeast-2c |mykey.pem
  ?> 2
-running... ssh -i /Users/minkwanc/Documents/ec2connector/pizonmbp.pem ec2-user@54.111.111.230
+running... ssh -i /Users/My/Documents/ec2connector/mykey.pem ec2-user@54.111.111.230
 </code></pre>
 아래 방법대로 사용하시면 됩니다
 
