@@ -48,7 +48,9 @@ for v in response["Reservations"]:
 
 #sort and show
 index = 1
-print("--[ " + ec2.meta.region_name + " ( " + str(len(connections)) + " ) ]---------------------------------------------------------------------------------------")
+print("--[ " + ec2.meta.region_name 
+	+ " ( " + str(len(connections)) 
+	+ " ) ]---------------------------------------------------------------------------------------")
 
 if len(connections) == 0:
 	print("No Instance. Bye!")
