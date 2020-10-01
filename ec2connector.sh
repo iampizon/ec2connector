@@ -1,1 +1,1 @@
-python ./ec2connector.py 
+python ./ec2connector.py $1

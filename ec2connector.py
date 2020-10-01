@@ -6,8 +6,16 @@ import boto3
 key_path = "/Users/Your/Documents"
 ###########################################
 
-ec2 = boto3.client('ec2')
-response = ec2.describe_instances()
+if len(sys.argv) > 1:
+	ec2 = boto3.client('ec2', region_name = sys.argv[1])
+else:
+	ec2 = boto3.client('ec2')
+
+try:
+	response = ec2.describe_instances()
+except Exception as ex:
+	print("Error:", ex)
+	sys.exit()
 
 #build connections
 connections = dict()
@@ -35,17 +43,24 @@ for v in response["Reservations"]:
 			"ip":public_ip, 
 			"key":key_name, 
 			"name":tag_name, 
-			"type":instance["InstanceType"]}
+			"type":instance["InstanceType"],
+			"az":instance["Placement"]["AvailabilityZone"]}
 
 #sort and show
 index = 1
-print("---------------------------------------------------------------------------------------------------------")
+print("--[ " + ec2.meta.region_name + " ( " + str(len(connections)) + " ) ]---------------------------------------------------------------------------------------")
+
+if len(connections) == 0:
+	print("No Instance. Bye!")
+	sys.exit()
+
 for k,v in sorted(connections.items()):
-	instance_info = v["name"] + " (" + v["id"] + ")"
 	print(str(index).rjust(3) 
-			+ "|" + instance_info.ljust(50) 
-			+ "|" + v["type"].ljust(15) 
+			+ "|" + v["name"].ljust(25) 
+			+ "|" + v["id"].ljust(21) 
+			+ "|" + v["type"].ljust(14) 
 			+ "|" + v["ip"].ljust(16) 
+			+ "|" + v["az"].ljust(16) 
 			+ "|" + v["key"])
 
 	v["index"] = index
