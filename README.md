@@ -8,7 +8,7 @@
  
 이런 모양으로 동작합니다. 
 <pre><code>
-(base) minkwanc@3c22fbb898c1 ec2connector % ecc                          
+>> ec2connector % ecc                          
 --[ ap-northeast-2 ( 16 ) ]---------------------------------------------------------------------------------------
   1|#Noname                  |i-1116c8f1bff824d9f  |t2.micro      |13.124.111.111  |ap-northeast-2a |mykey.pem
   2|BenchmarkWebserver       |i-111398d94649608b4  |c5n.2xlarge   |54.180.111.111  |ap-northeast-2a |mykey.pem
