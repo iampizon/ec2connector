@@ -31,17 +31,13 @@ running... ssh -i /Users/minkwanc/Documents/ec2connector/pizonmbp.pem ec2-user@5
 </code></pre>
 아래 방법대로 사용하시면 됩니다
 
-1. 로컬에 aws cli 가 설치되있어야 합니다.
-
- aws configure 로 access key id / secret key / region 을 설정해주기 위함인데(이 정보로 접속합니다), 직접 ~/aws/config, credentials 를 수정해도 됩니다.
-
- 맥용cli : https://docs.aws.amazon.com/ko_kr/cli/latest/userguide/install-cliv2-mac.html
+1. 로컬에 aws cli 가 설치되있어야 합니다. 
+- aws configure 로 access key id / secret key / region 을 설정해주기 위함인데(이 정보로 접속합니다), 직접 ~/aws/config, credentials 를 수정해도 됩니다.
+- 맥용cli : https://docs.aws.amazon.com/ko_kr/cli/latest/userguide/install-cliv2-mac.html
  
 2. Python 3 로 만들었습니다, python 과 python 용 aws sdk 인 boto3 도 설치가 되있어야 합니다.
-
- 파이썬 : https://www.python.org/downloads/
-
- Boto3 : https://aws.amazon.com/ko/sdk-for-python/   (pip install boto3 하면 됩니다)
+- 파이썬 : https://www.python.org/downloads/
+- Boto3 : https://aws.amazon.com/ko/sdk-for-python/   (pip install boto3 하면 됩니다)
  
 3. ec2connector.py 을 다운로드 받으시고, 파일을 열어서 , 다음 라인에 pem 키파일이 있는 위치를 설정해줍니다.
 <pre><code>
@@ -53,13 +49,9 @@ key_path = "/Users/Your/Documents"
 4. python ec2connector.py 로 실행시켜주면 끝입니다!! 원하는 인스턴스 번호를 누르면 쑝 접속됩니다. 넘나 편하지용
 
 5. 더 편하게 쓰기 위해서, 저는 ec2connector.sh 파일을 만들어서, python ec2connector.py 실행하도록 써주고,
-
- ln -s /usr/local/bin/ecc /Users/Your/Documents/ec2connector.sh
-
- 이렇게 /usr/local/bin 에 링크를 만들어서, 아무데서나 ecc 를 치면 작동하도록 해두었습니다!!
-
- 터미널에서 ecc 치고, 번호 고르면 땡!!! 입니다…
+- ln -s /usr/local/bin/ecc /Users/Your/Documents/ec2connector.sh
+- 이렇게 /usr/local/bin 에 링크를 만들어서, 아무데서나 ecc 를 치면 작동하도록 해두었습니다!!
+- 터미널에서 ecc 치고, 번호 고르면 땡!!! 입니다…
 
 6. 실행 인자로 리전을 선택하는 기능을 추가했습니다(2020/10/1)
-
-ecc ap-northeast-2 처럼 리전을 파라미터로 넘기면 해당 리전의 인스턴스 정보를 가져옵니다.
+- ecc ap-northeast-2 처럼 리전을 파라미터로 넘기면 해당 리전의 인스턴스 정보를 가져옵니다.
