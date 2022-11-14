@@ -49,7 +49,7 @@ key_path = "/Users/Your/Documents"
 4. python ec2connector.py 로 실행시켜주면 끝입니다!! 원하는 인스턴스 번호를 누르면 쑝 접속됩니다. 넘나 편하지용
 
 5. 더 편하게 쓰기 위해서, 저는 ec2connector.sh 파일을 만들어서, python ec2connector.py 실행하도록 써주고,
-- ln -s /usr/local/bin/ecc /Users/Your/Documents/ec2connector.sh
+- ln -s /Users/Your/Documents/ec2connector.sh /usr/local/bin/ecc
 - 이렇게 /usr/local/bin 에 링크를 만들어서, 아무데서나 ecc 를 치면 작동하도록 해두었습니다!!
 - 터미널에서 ecc 치고, 번호 고르면 땡!!! 입니다…
 
